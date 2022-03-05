@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<products>
+    <product>
+        <_id>1</_id>
+        <name>Project Vayne</name>
+        <category>Skins</category>
+        <image>/images/p1.jpg</image>
+        <price>120</price>
+        <brand>Riot</brand>
+        <rating>4.5</rating>
+        <numReviews>10</numReviews>
+        <description>Second best skin</description>
+    </product>
+    <product>
+        <_id>2</_id>
+        <name>Soulstealer Vayne</name>
+        <category>Skins</category>
+        <image>/images/p2.jpg</image>
+        <price>500</price>
+        <brand>Riot</brand>
+        <rating>5.0</rating>
+        <numReviews>69</numReviews>
+        <description>The absolute best skin</description>
+    </product>
+    <product>
+        <_id>3</_id>
+        <name>Spirit Blossome Vayne</name>
+        <category>Skins</category>
+        <image>/images/p3.jpg</image>
+        <price>150</price>
+        <brand>Riot</brand>
+        <rating>5.0</rating>
+        <numReviews>20</numReviews>
+        <description>My favourite one</description>
+    </product>
+    <product>
+        <_id>4</_id>
+        <name>Sentinel of the Light Vayne</name>
+        <category>Skins</category>
+        <image>/images/p4.jpg</image>
+        <price>99</price>
+        <brand>Riot</brand>
+        <rating>3.5</rating>
+        <numReviews>10</numReviews>
+        <description>Nah</description>
+    </product>
+    <product>
+        <_id>5</_id>
+        <name>FPX Vayne</name>
+        <category>Skins</category>
+        <image>/images/p5.jpg</image>
+        <price>109</price>
+        <brand>Riot</brand>
+        <rating>4.0</rating>
+        <numReviews>24</numReviews>
+        <description>Pretty good one</description>
+    </product>
+    <product>
+        <_id>6</_id>
+        <name>Firecracker Vayne Prestige Edition</name>
+        <category>Skins</category>
+        <image>/images/p6.jpg</image>
+        <price>129</price>
+        <brand>Riot</brand>
+        <rating>3.0</rating>
+        <numReviews>23</numReviews>
+        <description>Dunno honestly</description>
+    </product>
+</products>

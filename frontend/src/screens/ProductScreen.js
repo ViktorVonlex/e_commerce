@@ -1,6 +1,6 @@
 
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 import Rating from '../components/Rating';
 import data from '../data';
 
@@ -14,7 +14,8 @@ export default function ProductScreen(props) {
   }
   return (
     <div>
-      <div className="row">
+      <Link to="/">Back to result</Link>
+      <div className="row top">
         <div className='col-2'>
           <img className='large' src={product.image} alt={product.name} />
         </div>
@@ -44,7 +45,7 @@ export default function ProductScreen(props) {
                   <div>Status:</div>
                   <div>
                     {product.countInStock > 0 ? <span className='success'>In stock</span> :
-                      <span className='failure'>Not in stock</span>}
+                      <span className='error'>Not in stock</span>}
                   </div>
                 </div>
               </li>
