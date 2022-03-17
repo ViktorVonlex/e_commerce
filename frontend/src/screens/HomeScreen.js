@@ -12,7 +12,9 @@ export default function HomeScreen() {
         const fetchData = async () => {
             try {
                 setLoading(true);
+                console.log('waiting for data');
                 const { data } = await axios.get('/api/products');
+                console.log('data loaded');
                 setProducts(data);
                 setLoading(false);
             } catch (err) {
