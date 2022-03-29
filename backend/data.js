@@ -21,7 +21,7 @@ const data = {
         countInStock: 1,
         brand: 'Riot',
         rating: 5.0,
-        numReviews: 69,
+        numReviews: 72,
         description: 'THE BEST SKIN',
       },
       {
