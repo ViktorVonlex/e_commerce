@@ -1,19 +1,21 @@
-import axios, { Axios } from 'axios';
+//import axios, { Axios } from 'axios';
 import React, { useEffect } from 'react';
-import { useReducer } from 'react';
+import { useState } from 'react';
+//import { useReducer } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { detailsProduct } from '../actions/detailsProduct';
 import LoadingBox from '../components/LoadingBox';
 import MessageBox from '../components/MessageBox';
 import Rating from '../components/Rating';
-import { reducer } from '../reducers/productReducers';
+//import { reducer } from '../reducers/productReducers';
 
-export default function ProductScreen() {
-  
+export default function ProductScreen(props) {
+  const navigate = useNavigate();
   const params = useParams();
   const { id: productId } = params;
+  const [qty, setQty] = useState(1)
 
   const dispatch = useDispatch();
 
@@ -22,43 +24,46 @@ export default function ProductScreen() {
 
 
   useEffect(() => {
-  dispatch(detailsProduct(productId));
-  }, [dispatch ,productId]);
-  
+    dispatch(detailsProduct(productId));
+  }, [dispatch, productId]);
 
-/*
-  const reducer = (state, action) => {
-    switch (action.type) {
-      case 'FETCH REQUEST':
-        return { ...state, loading: true };
-      case 'FETCH SUCCESS':
-        return { ...state, product: action.payload, loading: false };
-      case 'FETCH FAIL':
-        return { ...state, error: action.payload, loading: false };
-      default:
-        return state;
-    }
-  }
+  const addToCartHandler = () => {
+    navigate(`/cart/${productId}?qty=${qty}`);
+  };
 
-  const [{ loading, error, product }, dispatch] = useReducer(reducer, {
-    product: [],
-    loading: true,
-    error: ''
-  })
-
-  useEffect(()=> {
-    const fetchData = async () => {
-      dispatch( {type: 'FETCH REQUEST'});
-      try {
-        const result = await axios.get(`/api/products/${productId}`);
-        dispatch( {type: 'FETCH SUCCESS', payload: result.data});
-      } catch (error) {
-        dispatch( {type: 'FETCH FAIL', payload: error.message});
+  /*
+    const reducer = (state, action) => {
+      switch (action.type) {
+        case 'FETCH REQUEST':
+          return { ...state, loading: true };
+        case 'FETCH SUCCESS':
+          return { ...state, product: action.payload, loading: false };
+        case 'FETCH FAIL':
+          return { ...state, error: action.payload, loading: false };
+        default:
+          return state;
       }
-    };
-    fetchData()
-  }, [productId])
-  */
+    }
+  
+    const [{ loading, error, product }, dispatch] = useReducer(reducer, {
+      product: [],
+      loading: true,
+      error: ''
+    })
+  
+    useEffect(()=> {
+      const fetchData = async () => {
+        dispatch( {type: 'FETCH REQUEST'});
+        try {
+          const result = await axios.get(`/api/products/${productId}`);
+          dispatch( {type: 'FETCH SUCCESS', payload: result.data});
+        } catch (error) {
+          dispatch( {type: 'FETCH FAIL', payload: error.message});
+        }
+      };
+      fetchData()
+    }, [productId])
+    */
 
   return (
     <div>
@@ -116,9 +121,26 @@ export default function ProductScreen() {
                       </div>
                     </div>
                   </li>
-                  <li>
-                    <button className="primary block">Add to Cart</button>
-                  </li>
+                  {product.countInStock > 0 && (
+                    <>
+                      <div className="row">
+                        <div>Qnty</div>
+                        <div>
+                          <select value={qty} onChange={e => setQty(e.target.value)}>
+                            {[...Array(product.countInStock).keys()].map(x => (
+                              <option key={x + 1} value={x + 1}>
+                                {x + 1}
+                              </option>
+                            )
+                            )}
+                          </select>
+                        </div>
+                      </div>
+                      <li>
+                        <button onClick={addToCartHandler} className="primary block">Add to Cart</button>
+                      </li>
+                    </>
+                  )}
                 </ul>
               </div>
             </div>
