@@ -31,40 +31,6 @@ export default function ProductScreen(props) {
     navigate(`/cart/${productId}?qty=${qty}`);
   };
 
-  /*
-    const reducer = (state, action) => {
-      switch (action.type) {
-        case 'FETCH REQUEST':
-          return { ...state, loading: true };
-        case 'FETCH SUCCESS':
-          return { ...state, product: action.payload, loading: false };
-        case 'FETCH FAIL':
-          return { ...state, error: action.payload, loading: false };
-        default:
-          return state;
-      }
-    }
-  
-    const [{ loading, error, product }, dispatch] = useReducer(reducer, {
-      product: [],
-      loading: true,
-      error: ''
-    })
-  
-    useEffect(()=> {
-      const fetchData = async () => {
-        dispatch( {type: 'FETCH REQUEST'});
-        try {
-          const result = await axios.get(`/api/products/${productId}`);
-          dispatch( {type: 'FETCH SUCCESS', payload: result.data});
-        } catch (error) {
-          dispatch( {type: 'FETCH FAIL', payload: error.message});
-        }
-      };
-      fetchData()
-    }, [productId])
-    */
-
   return (
     <div>
       {loading ? (
