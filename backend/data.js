@@ -2,8 +2,7 @@ import bcrypt from 'bcryptjs';
 
 const data = {
     products: [
-    {
-        _id:'1',
+      {
         name: 'Project Vayne',
         category: 'Skins',
         image: '/images/p1.jpg',
@@ -15,7 +14,6 @@ const data = {
         description: 'second best skin',
       },
       {
-        _id:'2',
         name: 'Soulstealer Vayne',
         category: 'Skins',
         image: '/images/p2.jpg',
@@ -27,7 +25,6 @@ const data = {
         description: 'THE BEST SKIN',
       },
       {
-        _id:'3',
         name: 'Spirit Blossom Vayne',
         category: 'Skins',
         image: '/images/p3.jpg',
@@ -39,7 +36,6 @@ const data = {
         description: 'My favourite one',
       },
       {
-        _id:'4',
         name: 'Sentinel of the Light Vayne',
         category: 'Skins',
         image: '/images/p4.jpg',
@@ -51,7 +47,6 @@ const data = {
         description: 'Nah',
       },
       {
-        _id:'5',
         name: 'FPX Vayne',
         category: 'Skins',
         image: '/images/p5.jpg',
@@ -63,7 +58,6 @@ const data = {
         description: 'Pretty good',
       },
       {
-        _id:'6',
         name: 'Firecracker Vayne Prestige Edition',
         category: 'Skins',
         image: '/images/p6.jpg',
