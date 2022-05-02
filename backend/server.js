@@ -2,7 +2,7 @@ import express from 'express'
 import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
 
-const app = express()
+const app = express();
 
 app.get("/", (req, res) => {
     res.send("Server is ready");
