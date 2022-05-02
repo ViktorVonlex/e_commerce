@@ -20,7 +20,7 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "start": "concurrently \"nodemon --watch backend --exec node --experimental-modules backend/server.js\" \"cd frontend && npm start\""
+    "start": "concurrently \"node backend/server.js\" \"cd frontend && npm start\""
   },
   "author": "",
   "license": "ISC"
