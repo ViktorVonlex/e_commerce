@@ -2,12 +2,14 @@ import express from 'express'
 import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
 
+import { join } from 'path'
 const app = express()
 
-app.get("/", (req, res) => {
-    res.send("Server is ready");
-});
+// app.get("/", (req, res) => {
+//     res.send("Server is ready");
+// });
 
+app.use('/', express.static(join(process.cwd(), 'public')))
 app.use('/api/users', userRouter)
 
 app.use('/api/products', productRouter)
