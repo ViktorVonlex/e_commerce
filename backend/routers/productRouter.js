@@ -11,6 +11,7 @@ const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: 
 
 client.connect();
 const collection = client.db("ecommerce").collection("products");
+client.close();
 
 productRouter.get('/', expressAsyncHandler(async (req, res) => {
         const products = await collection.find({},).toArray();
