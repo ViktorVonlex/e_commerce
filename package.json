@@ -21,7 +21,7 @@
     "nodemon": "^2.0.15"
   },
   "scripts": {
-    "start": "concurrently \"node backend/server.js\" \"cd frontend && npm install && npm start\""
+    "start": "concurrently \"node backend/server.js\" \"cd frontend && npm run build\""
   },
   "author": "",
   "license": "ISC"
