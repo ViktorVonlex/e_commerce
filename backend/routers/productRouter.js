@@ -9,12 +9,11 @@ const productRouter = express.Router();
 const uri = "mongodb+srv://Vonlex:Darkside521@cluster0.xegqa.mongodb.net/ecommerce?retryWrites=true&w=majority";
 const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1});
 
-client.connect();
-const collection = client.db("ecommerce").collection("products");
-client.close();
-
 productRouter.get('/', expressAsyncHandler(async (req, res) => {
+        await client.connect();
+        const collection = client.db("ecommerce").collection("products");
         const products = await collection.find({},).toArray();
+        await client.close();
         res.send({products});
     })
 )
@@ -26,7 +25,10 @@ productRouter.get('/seed', expressAsyncHandler(async (req, res) => {
 }))
 
 productRouter.get('/:id', expressAsyncHandler(async (req, res) => {
+    await client.connect();
+    const collection = client.db("ecommerce").collection("products");
     const product = await collection.findOne({"_id": ObjectId(req.params.id)});
+    await client.connect();
 
     if (product) {
         res.send(product);
