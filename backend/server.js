@@ -1,6 +1,8 @@
 import express from 'express'
 import userRouter from "./routers/userRouter.js";
 import productRouter from "./routers/productRouter.js";
+import helmet from "helmet";
+
 
 import { join } from 'path'
 const app = express()
@@ -10,6 +12,14 @@ const app = express()
 // });
 
 app.use('/', express.static(join(process.cwd(), 'public')))
+
+app.use( helmet.contentSecurityPolicy({
+    directives: {
+        defaultSrc: ["'self'"],
+        styleSrc: ["'self'"],
+        scriptSrc: ["'self'", "'unsafe-inline'"],
+    }}))
+
 app.use('/api/users', userRouter)
 
 app.use('/api/products', productRouter)
