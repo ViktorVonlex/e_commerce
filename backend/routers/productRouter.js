@@ -6,7 +6,12 @@ import {MongoClient, ServerApiVersion, ObjectId} from "mongodb";
 
 const productRouter = express.Router();
 
-const uri = "mongodb+srv://Vonlex:Darkside521@cluster0.xegqa.mongodb.net/ecommerce?retryWrites=true&w=majority";
+//cloud
+//const uri = "mongodb+srv://Vonlex:Darkside521@cluster0.xegqa.mongodb.net/ecommerce?retryWrites=true&w=majority";
+
+//localhost or container
+const uri = "mongodb://docker:mongopw@localhost:49153";
+
 const client = new MongoClient(uri, {useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1});
 
 productRouter.get('/', expressAsyncHandler(async (req, res) => {
